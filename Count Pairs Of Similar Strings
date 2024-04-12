@@ -1,0 +1,14 @@
+from typing import List
+
+class Solution:
+    def similarPairs(self, words: List[str]) -> int:
+        def count_chars(word):
+            return sorted(set(word))
+
+        pairs = 0
+        n = len(words)
+        for i in range(n):
+            for j in range(i + 1, n):
+                if count_chars(words[i]) == count_chars(words[j]):
+                    pairs += 1
+        return pairs
